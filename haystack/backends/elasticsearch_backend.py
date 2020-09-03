@@ -23,20 +23,7 @@ from haystack.utils import get_identifier, get_model_ct
 from haystack.utils import log as logging
 from haystack.utils.app_loading import haystack_get_model
 
-try:
-    import elasticsearch
-
-    try:
-        # let's try this, for elasticsearch > 1.7.0
-        from elasticsearch.helpers import bulk
-    except ImportError:
-        # let's try this, for elasticsearch <= 1.7.0
-        from elasticsearch.helpers import bulk_index as bulk
-    from elasticsearch.exceptions import NotFoundError
-except ImportError:
-    raise MissingDependency(
-        "The 'elasticsearch' backend requires the installation of 'elasticsearch'. Please refer to the documentation."
-    )
+import elasticsearch2 as elasticsearch
 
 
 DATETIME_REGEX = re.compile(
