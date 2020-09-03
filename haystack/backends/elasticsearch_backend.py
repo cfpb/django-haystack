@@ -24,6 +24,7 @@ from haystack.utils import log as logging
 from haystack.utils.app_loading import haystack_get_model
 
 import elasticsearch2 as elasticsearch
+from elasticsearch2.exceptions import NotFoundError
 
 
 DATETIME_REGEX = re.compile(
